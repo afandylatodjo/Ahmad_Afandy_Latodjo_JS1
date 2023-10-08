@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator</title>
+
+  <style>
+    body {
+      background-color: #234;
+    }
+
+    body * {
+      box-sizing: border-box;
+    }
+
+    .calculator-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .calculator-interface {
+      display: flex;
+      justify-content: center;
+      margin: 5vw;
+      flex-direction: column;
+      width: 30%;
+      max-width: 300px;
+      margin: auto;
+      border: 1px solid white;
+      border-radius: 10px;
+      padding: 16px;
+      background-color: gray;
+    }
+
+    .input-area {
+      width: 100%;
+
+    }
+
+    #input-number {
+      display: block;
+      padding: 12px;
+      border: none;
+      outline: none;
+      text-align: right;
+      appearance: textfield;
+      width: 100%;
+      margin: auto;
+    }
+
+    .grid-container {
+      gap: 1px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+      padding-top: 10px;
+    }
+
+    .grid-item {
+      overflow: hidden;
+    }
+
+    .grid-item>button {
+      border: none;
+      padding: calc(10px);
+      width: 100%;
+      background-color: white;
+    }
+
+    .grid-item:nth-child(1) {
+      border-top-left-radius: 6px;
+    }
+
+    .grid-item:nth-child(3) {
+      border-top-right-radius: 6px;
+    }
+
+    .grid-item:nth-child(19) {
+      border-bottom-left-radius: 6px;
+    }
+
+    .grid-item:nth-child(21) {
+      border-bottom-right-radius: 6px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="calculator-container" style="padding: 10px;">
+    <h1 style="color: white">Kalkulator Sederhana</h1>
+    <div class="calculator-interface">
+      <div class="input-area">
+        <input type="text" id="input-number" placeholder="0" style="border-radius: 6px">
+      </div>
+      <div class="input-number">
+        <div class="grid-container" id="grid-container">
+          <div class="grid-item" id="breakpoint" onclick="addNumberToInput('.')"><button>.</button></div>
+
+          <!-- Disini akan di append return grid-item yang isinya button -->
+
+          <!-- Titik breakpoint -->
+          <div class="grid-item" onclick="addNumberToInput(0)"><button>0</button></div>
+          <div class="grid-item" onclick="operation('=')"><button>&equals;</button></div>
+
+
+          <!-- Disini kalkulasi dengan fungsi -->
+          <div class="grid-item" onclick="addNumberToInput('!')"><button>!</button></div>
+          <div class="grid-item" onclick="operation('r')"><button>&Sqrt;</button></div>
+          <div class="grid-item" onclick="addNumberToInput('^')"><button>x&sup2</button></div>
+
+          <!-- Disini operasi kalkulasi berada -->
+          <div class="grid-item" onclick="operation('+')"><button>&plus;</button></div>
+          <div class="grid-item" onclick="operation('-')"><button>&minus;</button></div>
+          <div class="grid-item" onclick="operation('*')"><button>&times;</button></div>
+          <div class="grid-item" onclick="operation('/')"><button>&divide;</button></div>
+          <div class="grid-item" onclick="operation('c')"><button>C</button></div>
+          <div class="grid-item" onclick="operation('b')"><button style="background-color: #F77;">&lt;&equals;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
